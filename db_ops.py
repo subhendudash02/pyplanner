@@ -1,7 +1,7 @@
 import subprocess as sp
 import sqlite3 as sql
 
-connect_db = sql.connect("util.db")
+connect_db = sql.connect("util.db", check_same_thread=False)
 cursor = connect_db.cursor()
 
 def remove_db(): # will be used to reset the application
@@ -26,7 +26,7 @@ def sort_table():
     connect_db.commit()
 
 def topmost_row():
-    time = cursor.execute("SELECT unix, name from task LIMIT 1;")
+    time = cursor.execute("SELECT unix, name from task ORDER BY unix ASC LIMIT 1;")
     connect_db.commit()
     return time.fetchall()
 
