@@ -12,21 +12,20 @@ def remove_db(): # will be used to reset the application
         sp.run(["rm", "util.db"])
 
 def create_table(name, attr, datatypes):
-    cursor.execute("CREATE TABLE {}({} {}, {} {}, {} {});"
-                    .format(name, attr[0], datatypes[0], attr[1], datatypes[1], attr[2], datatypes[2])
+    cursor.execute("CREATE TABLE {}({} {}, {} {}, {} {}, {} {});"
+                    .format(name, attr[0], datatypes[0], 
+                                attr[1], datatypes[1], 
+                                attr[2], datatypes[2],
+                                attr[3], datatypes[3])
                     )
     connect_db.commit()
 
 def insertInto_table(name, values):
-    cursor.execute("INSERT INTO {} VALUES('{}', '{}', '{}');".format(name, values[0], values[1], values[2]))
-    connect_db.commit()
-
-def sort_table():
-    cursor.execute("SELECT unix from task ORDER BY unix ASC;")
+    cursor.execute("INSERT INTO {} VALUES('{}', '{}', '{}', '{}');".format(name, values[0], values[1], values[2], values[3]))
     connect_db.commit()
 
 def topmost_row():
-    time = cursor.execute("SELECT unix, name from task ORDER BY unix ASC LIMIT 1;")
+    time = cursor.execute("SELECT name, unix, cron from task ORDER BY unix DESC LIMIT 1;")
     connect_db.commit()
     return time.fetchall()
 
