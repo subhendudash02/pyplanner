@@ -5,11 +5,11 @@ connect_db = sql.connect("database/util.db", check_same_thread=False)
 cursor = connect_db.cursor()
 
 def remove_db(): # will be used to reset the application
-    x = sp.run(["find", "util.db"], stdout=sp.DEVNULL, stderr=sp.DEVNULL)
+    x = sp.run(["find", "database/util.db"], stdout=sp.DEVNULL, stderr=sp.DEVNULL)
     if x.returncode == 1:
         print("No Database found")
     else:
-        sp.run(["rm", "util.db"])
+        sp.run(["rm", "database/util.db"])
 
 def create_table(name, attr, datatypes):
     cursor.execute("CREATE TABLE {}({} {}, {} {}, {} {}, {} {});"
