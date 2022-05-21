@@ -20,15 +20,20 @@ def create_table(name, attr, datatypes):
                     )
     connect_db.commit()
 
-def insertInto_table(name, values):
-    cursor.execute("INSERT INTO {} VALUES('{}', '{}', '{}', '{}');".format(name, values[0], values[1], values[2], values[3]))
+def insertInto_table(values):
+    cursor.execute("INSERT INTO set_task VALUES('{}', '{}', '{}', '{}');".format(values[0], values[1], values[2], values[3]))
     connect_db.commit()
 
 def topmost_row():
-    time = cursor.execute("SELECT name, unix, cron from task ORDER BY unix DESC LIMIT 1;")
+    time = cursor.execute("SELECT name, unix, cron from set_task ORDER BY unix DESC LIMIT 1;")
     connect_db.commit()
     return time.fetchall()
 
 def delete_row(unix):
-    cursor.execute("DELETE from task where unix = {};".format(unix))
+    cursor.execute("DELETE from set_task where unix = {};".format(unix))
     connect_db.commit()
+
+def show_tasks():
+    cursor.execute("SELECT * from set_task;")
+    connect_db.commit()
+    return cursor.fetchall()
