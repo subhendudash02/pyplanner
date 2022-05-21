@@ -1,6 +1,8 @@
 from crontab import CronTab
+import subprocess as sp
 
-cron = CronTab(user="subhendu")
+username = sp.check_output(["whoami"], shell=True).decode("utf-8").strip()
+cron = CronTab(user=username)
 
 def clear_jobs():
     cron.remove_all()
