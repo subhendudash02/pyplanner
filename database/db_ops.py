@@ -1,7 +1,7 @@
 import subprocess as sp
 import sqlite3 as sql
 
-connect_db = sql.connect("util.db", check_same_thread=False)
+connect_db = sql.connect("database/util.db", check_same_thread=False)
 cursor = connect_db.cursor()
 
 def remove_db(): # will be used to reset the application

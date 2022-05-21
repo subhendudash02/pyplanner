@@ -1,6 +1,6 @@
 from rich.console import Console
 from rich.table import Table
-import db_ops as ops
+import database.db_ops as ops
 import os
 
 def print_tasks():
