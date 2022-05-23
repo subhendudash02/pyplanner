@@ -1,9 +1,19 @@
+import os
 import database.db_ops as ops
 import sys
 from datetime import datetime
-import time
+import time as tt
 import cron_job as cr
 import task_list as tl
+
+def task_register(task, time):
+    d = datetime.now()
+    new = datetime(d.year, d.month, d.day, int(time[0:2]), int(time[3:5]), 0)
+    unix = tt.mktime(new.timetuple())
+    cron = "{} {} {} {} *".format(time[3:5], time[0:2], d.day, d.month)
+    ops.insertInto_table([task, time, unix, cron])
+    final_txt = "XDG_RUNTIME_DIR=/run/user/$(id -u) notify-send Reminder '{}'".format(task)  
+    cr.make_job(final_txt, [time[3:5], time[0:2], d.day, d.month])
 
 args = len(sys.argv)
 
@@ -13,13 +23,7 @@ except:
     pass
 
 if args == 4:
-    d = datetime.now()
-    new = datetime(d.year, d.month, d.day, int(sys.argv[3][0:2]), int(sys.argv[3][3:5]), 0)
-    unix = time.mktime(new.timetuple())
-    cron = "{} {} {} {} *".format(sys.argv[3][3:5], sys.argv[3][0:2], d.day, d.month)
-    ops.insertInto_table([sys.argv[2], sys.argv[3], unix, cron])
-    final_txt = "XDG_RUNTIME_DIR=/run/user/$(id -u) notify-send Reminder '{}'".format(sys.argv[2])  
-    cr.make_job(final_txt, [sys.argv[3][3:5], sys.argv[3][0:2], d.day, d.month])
+    task_register(sys.argv[2], sys.argv[3])
 
 elif args == 2:
     if sys.argv[1] == "reset":
@@ -28,6 +32,8 @@ elif args == 2:
         print("All the tasks are removed. Hence you will not receive notifications until you schedule a new task.")
     elif sys.argv[1] == "show_tasks":
         tl.print_tasks()
+    elif sys.argv[1] == "start_app":
+        os.system("python3 -m app_util")
     
 elif args == 1:
     print("Set some tasks...")
