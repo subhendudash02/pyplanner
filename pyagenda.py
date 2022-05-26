@@ -5,6 +5,12 @@ from datetime import datetime
 import time as tt
 import cron_job as cr
 import task_list as tl
+import platform as pf
+
+os = pf.system()
+
+if os == "Windows":
+    exit()
 
 def task_register(task, time):
     d = datetime.now()
