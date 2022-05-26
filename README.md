@@ -12,7 +12,7 @@ Both CLI and GUI are supported by pyagenda.
 
 <br>
 
-# Getting Started
+## Getting Started
 
 1. Fork this repository.
 
@@ -44,7 +44,7 @@ That's it! You have scheduled a task.
 
 <br>
 
-# Commands
+## Commands
 
 1. Reset all the tasks
 
@@ -76,7 +76,7 @@ python3 -m pyagenda set_task <task-name> <time-scheduled>
 
 <br>
 
-# License
+## License
 
 [Licensed](https://github.com/subhendudash02/pyagenda/blob/main/LICENSE) under MIT License
 
