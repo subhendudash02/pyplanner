@@ -1,14 +1,14 @@
 from crontab import CronTab
 import subprocess as sp
-import platform as pf
+from os_checker import check_os
 
-os = pf.system()
+os = check_os()
 
 if os == "Linux":
     username = sp.check_output(["whoami"], shell=True).decode("utf-8").strip()
     cron = CronTab(user=username)
 else:
-    print("This application is only for Linux")
+    cron = CronTab(tabfile="win_scheduler.bat")
 
 def clear_jobs():
     cron.remove_all()

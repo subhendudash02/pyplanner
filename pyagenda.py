@@ -5,12 +5,7 @@ from datetime import datetime
 import time as tt
 import cron_job as cr
 import task_list as tl
-import platform as pf
-
-os = pf.system()
-
-if os == "Windows":
-    exit()
+from os_checker import check_os
 
 def task_register(task, time):
     d = datetime.now()
@@ -18,8 +13,14 @@ def task_register(task, time):
     unix = tt.mktime(new.timetuple())
     cron = "{} {} {} {} *".format(time[3:5], time[0:2], d.day, d.month)
     ops.insertInto_table([task, time, unix, cron])
-    final_txt = "XDG_RUNTIME_DIR=/run/user/$(id -u) notify-send Reminder '{}'".format(task)  
+    
+    if check_os() == "Linux":
+        final_txt = "XDG_RUNTIME_DIR=/run/user/$(id -u) notify-send Reminder '{}'".format(task)  
+    elif check_os() == "Windows":
+        final_txt = "python -m notification/win_support.py '{}'".format(task)
+    
     cr.make_job(final_txt, [time[3:5], time[0:2], d.day, d.month])
+
 
 args = len(sys.argv)
 
