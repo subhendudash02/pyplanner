@@ -8,7 +8,7 @@ pyagenda keeps track of all your activities and notifies you when they are due.
 
 Both CLI and GUI are supported by pyagenda.
 
-<b>Note: </b> For the time being, this app only runs on Linux. Windows support will be available soon.
+<b>Note: </b> For the time being, this app only runs on Linux. Windows support will be available soon (check `windows` branch for the windows task scheduler Python Script).
 
 <br>
 
