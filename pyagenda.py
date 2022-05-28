@@ -7,17 +7,18 @@ import cron_job as cr
 import task_list as tl
 from os_checker import check_os
 
+if check_os() != "Linux":
+    print("This application is supported by Linux only.")
+    exit()
+
 def task_register(task, time):
     d = datetime.now()
     new = datetime(d.year, d.month, d.day, int(time[0:2]), int(time[3:5]), 0)
     unix = tt.mktime(new.timetuple())
     cron = "{} {} {} {} *".format(time[3:5], time[0:2], d.day, d.month)
     ops.insertInto_table([task, time, unix, cron])
-    
-    if check_os() == "Linux":
-        final_txt = "XDG_RUNTIME_DIR=/run/user/$(id -u) notify-send Reminder '{}'".format(task)  
-    elif check_os() == "Windows":
-        final_txt = "C:\\Users\\admin\\AppData\\Local\\Programs\\Python\\Python39\\python.exe -m notification/win_support.py '{}'".format(task)
+
+    final_txt = "XDG_RUNTIME_DIR=/run/user/$(id -u) notify-send Reminder '{}'".format(task)  
     
     cr.make_job(final_txt, [time[3:5], time[0:2], d.day, d.month])
 

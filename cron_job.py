@@ -3,12 +3,8 @@ import subprocess as sp
 from os_checker import check_os
 
 os = check_os()
-
-if os == "Linux":
-    username = sp.check_output(["whoami"], shell=True).decode("utf-8").strip()
-    cron = CronTab(user=username)
-else:
-    cron = CronTab(tabfile="win_scheduler.bat")
+username = sp.check_output(["whoami"], shell=True).decode("utf-8").strip()
+cron = CronTab(user=username)
 
 def clear_jobs():
     cron.remove_all()
