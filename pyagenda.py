@@ -14,6 +14,9 @@ if check_os() != "Linux":
 def task_register(task, time):
     d = datetime.now()
     new = datetime(d.year, d.month, d.day, int(time[0:2]), int(time[3:5]), 0)
+    if d >= new:
+        print("Invalid time passed.")
+        exit()
     unix = tt.mktime(new.timetuple())
     cron = "{} {} {} {} *".format(time[3:5], time[0:2], d.day, d.month)
     ops.insertInto_table([task, time, unix, cron])
