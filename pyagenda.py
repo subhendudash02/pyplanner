@@ -32,6 +32,7 @@ except:
 
 if args == 4:
     task_register(sys.argv[2], sys.argv[3])
+    print("Task Scheduled!")
 
 elif args == 2:
     if sys.argv[1] == "reset":
@@ -41,8 +42,17 @@ elif args == 2:
     elif sys.argv[1] == "show_tasks":
         tl.print_tasks()
     elif sys.argv[1] == "start_app":
+        print("Starting the app...")
         os.system("python3 -m app_util")
-    
-elif args == 1:
-    print("Set some tasks...")
-    print("Usage: python3 terminal_connect.py set_task <task_name> <time>")
+    elif sys.argv[1] == "help":
+        print("""
+        Usage:
+        python3 -m pyagenda [option] [task] [time]
+
+        Options:
+        reset - Removes all the tasks from the database.
+        show_tasks - Shows all the tasks in the database.
+        start_app - Starts the application.
+        """)
+    else:
+        print("Unknown Command. Please use 'python3 -m pyagenda help' for more info.")
