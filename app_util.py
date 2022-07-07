@@ -15,6 +15,8 @@ class App(Ui_MainWindow):
         self.tasks.setColumnCount(2)
 
         self.tasks.setHorizontalHeaderLabels(["Task Name", "Time"])
+        header = self.tasks.horizontalHeader()
+        header.setSectionResizeMode(0, QtWidgets.QHeaderView.Stretch)
 
         for i in range(len(li)):
             for j in range(3):

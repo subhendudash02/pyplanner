@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'gui.ui'
+# Form implementation generated from reading ui file 'app/gui.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.6
 #
@@ -48,13 +48,13 @@ class Ui_MainWindow(object):
         self.label_3.setGeometry(QtCore.QRect(10, 140, 57, 15))
         self.label_3.setObjectName("label_3")
         self.tasks = QtWidgets.QTableWidget(self.centralwidget)
-        self.tasks.setGeometry(QtCore.QRect(330, 110, 301, 411))
+        self.tasks.setGeometry(QtCore.QRect(360, 110, 261, 192))
         self.tasks.setObjectName("tasks")
         self.tasks.setColumnCount(0)
         self.tasks.setRowCount(0)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 641, 20))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 641, 29))
         self.menubar.setObjectName("menubar")
         self.menuEdit = QtWidgets.QMenu(self.menubar)
         self.menuEdit.setObjectName("menuEdit")

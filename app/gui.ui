@@ -125,10 +125,10 @@
    <widget class="QTableWidget" name="tasks">
     <property name="geometry">
      <rect>
-      <x>330</x>
+      <x>360</x>
       <y>110</y>
-      <width>301</width>
-      <height>411</height>
+      <width>261</width>
+      <height>192</height>
      </rect>
     </property>
    </widget>
@@ -139,7 +139,7 @@
      <x>0</x>
      <y>0</y>
      <width>641</width>
-     <height>20</height>
+     <height>29</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuEdit">
