@@ -11,9 +11,14 @@ if check_os() != "Linux":
     print("This application is supported for Linux only.")
     exit()
 
-def task_register(task, time):
+def make_time(time):
     d = datetime.now()
     new = datetime(d.year, d.month, d.day, int(time[0:2]), int(time[3:5]), 0)
+    return new
+
+def task_register(task, time):
+    d = datetime.now()
+    new = make_time(time)
     if d >= new:
         print("Invalid time passed.")
         exit()
