@@ -1,7 +1,7 @@
 from pyagenda import task_register
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import  QTableWidgetItem
-from app.gui_app import Ui_MainWindow
+from appUtil.gui_app import Ui_MainWindow
 import database.db_ops as ops
 import sys
 

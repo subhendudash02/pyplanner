@@ -8,7 +8,7 @@ import task_list as tl
 from os_checker import check_os
 
 if check_os() != "Linux":
-    print("This application is supported by Linux only.")
+    print("This application is supported for Linux only.")
     exit()
 
 def task_register(task, time):
@@ -46,7 +46,7 @@ elif args == 2:
         tl.print_tasks()
     elif sys.argv[1] == "start_app":
         print("Starting the app...")
-        os.system("python3 -m app_util")
+        os.system("python3 -m app")
     elif sys.argv[1] == "help":
         print("""
         Usage:
