@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'app/gui.ui'
+# Form implementation generated from reading ui file 'gui.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.6
 #
@@ -11,11 +11,11 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Ui_MainWindow(object):
-    def setupUi(self, MainWindow):
-        MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(641, 600)
-        self.centralwidget = QtWidgets.QWidget(MainWindow)
+class Ui_pyagenda(object):
+    def setupUi(self, pyagenda):
+        pyagenda.setObjectName("pyagenda")
+        pyagenda.resize(641, 600)
+        self.centralwidget = QtWidgets.QWidget(pyagenda)
         self.centralwidget.setObjectName("centralwidget")
         self.addButton = QtWidgets.QPushButton(self.centralwidget)
         self.addButton.setGeometry(QtCore.QRect(250, 160, 31, 23))
@@ -52,23 +52,23 @@ class Ui_MainWindow(object):
         self.tasks.setObjectName("tasks")
         self.tasks.setColumnCount(0)
         self.tasks.setRowCount(0)
-        MainWindow.setCentralWidget(self.centralwidget)
-        self.menubar = QtWidgets.QMenuBar(MainWindow)
+        pyagenda.setCentralWidget(self.centralwidget)
+        self.menubar = QtWidgets.QMenuBar(pyagenda)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 641, 29))
         self.menubar.setObjectName("menubar")
         self.menuEdit = QtWidgets.QMenu(self.menubar)
         self.menuEdit.setObjectName("menuEdit")
         self.menuMore = QtWidgets.QMenu(self.menubar)
         self.menuMore.setObjectName("menuMore")
-        MainWindow.setMenuBar(self.menubar)
-        self.statusbar = QtWidgets.QStatusBar(MainWindow)
+        pyagenda.setMenuBar(self.menubar)
+        self.statusbar = QtWidgets.QStatusBar(pyagenda)
         self.statusbar.setObjectName("statusbar")
-        MainWindow.setStatusBar(self.statusbar)
-        self.actionRefresh = QtWidgets.QAction(MainWindow)
+        pyagenda.setStatusBar(self.statusbar)
+        self.actionRefresh = QtWidgets.QAction(pyagenda)
         self.actionRefresh.setObjectName("actionRefresh")
-        self.actionReset = QtWidgets.QAction(MainWindow)
+        self.actionReset = QtWidgets.QAction(pyagenda)
         self.actionReset.setObjectName("actionReset")
-        self.actionAbout = QtWidgets.QAction(MainWindow)
+        self.actionAbout = QtWidgets.QAction(pyagenda)
         self.actionAbout.setObjectName("actionAbout")
         self.menuEdit.addAction(self.actionRefresh)
         self.menuEdit.addAction(self.actionReset)
@@ -76,19 +76,19 @@ class Ui_MainWindow(object):
         self.menubar.addAction(self.menuEdit.menuAction())
         self.menubar.addAction(self.menuMore.menuAction())
 
-        self.retranslateUi(MainWindow)
-        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+        self.retranslateUi(pyagenda)
+        QtCore.QMetaObject.connectSlotsByName(pyagenda)
 
-    def retranslateUi(self, MainWindow):
+    def retranslateUi(self, pyagenda):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.addButton.setText(_translate("MainWindow", "+"))
-        self.removeButton.setText(_translate("MainWindow", "-"))
-        self.label.setText(_translate("MainWindow", "Your Tasks"))
-        self.label_2.setText(_translate("MainWindow", "Task"))
-        self.label_3.setText(_translate("MainWindow", "Time"))
-        self.menuEdit.setTitle(_translate("MainWindow", "Edit"))
-        self.menuMore.setTitle(_translate("MainWindow", "More"))
-        self.actionRefresh.setText(_translate("MainWindow", "Refresh"))
-        self.actionReset.setText(_translate("MainWindow", "Reset "))
-        self.actionAbout.setText(_translate("MainWindow", "About"))
+        pyagenda.setWindowTitle(_translate("pyagenda", "MainWindow"))
+        self.addButton.setText(_translate("pyagenda", "+"))
+        self.removeButton.setText(_translate("pyagenda", "-"))
+        self.label.setText(_translate("pyagenda", "Your Tasks"))
+        self.label_2.setText(_translate("pyagenda", "Task"))
+        self.label_3.setText(_translate("pyagenda", "Time"))
+        self.menuEdit.setTitle(_translate("pyagenda", "Edit"))
+        self.menuMore.setTitle(_translate("pyagenda", "More"))
+        self.actionRefresh.setText(_translate("pyagenda", "Refresh"))
+        self.actionReset.setText(_translate("pyagenda", "Reset "))
+        self.actionAbout.setText(_translate("pyagenda", "About"))
