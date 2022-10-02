@@ -37,7 +37,7 @@ pip3 install -r requirements.txt
 
 For CLI part, it is easy to use, just follow the [list of commands](https://github.com/subhendudash02/pyagenda#commands) accordingly.
 
-For GUI part, **don't change `gui_app.py` in `appUtil` file**. That python file is automatically generated after saving `gui.ui` XML file.
+For GUI part, **don't change `gui_app.py` in `appUtil` file**. That python file is automatically generated after saving `gui.ui` XML file. For functioning of the app, `app.py` has relevant functionalities.
 
 # GUI Setup
 

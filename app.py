@@ -10,6 +10,11 @@ class App(Ui_pyagenda):
     def __init__(self):
         super().__init__()
 
+    """
+        Setting up background color
+         - Green: Complete task
+         - Red: Incomplete task
+    """
     def setBackgroundColor(self, row, col, time):
         d = datetime.now()
         green = QtGui.QColor(0, 125, 0)
@@ -22,6 +27,10 @@ class App(Ui_pyagenda):
             self.tasks.item(row, col - 1).setBackground(red)
 
     
+    """
+        Creation of table in the GUI
+    """
+
     def table_init(self):
         li = ops.show_tasks()
         self.tasks.setRowCount(len(li))
@@ -36,6 +45,11 @@ class App(Ui_pyagenda):
                 self.tasks.setItem(i, j, QTableWidgetItem(str(li[i][j])))
                 if j == 1:
                     App.setBackgroundColor(self, row=i, col=j, time=str(li[i][j]))
+
+    
+    """
+        Add tasks inside the table
+    """
     
     def add_task(self):
         task = self.setTask.text()

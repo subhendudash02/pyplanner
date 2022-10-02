@@ -46,6 +46,10 @@ That's it! You have scheduled a task.
 
 ![reminder](./screenshots/reminder.png)
 
+**Note:**
+ - Green highlighted task refers to the completed task.
+ - Red highlighted task refers to the incomplete task.
+
 <br>
 
 ## System Requirements
