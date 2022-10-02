@@ -71,3 +71,7 @@ git checkout build
 
 2. Now, make any changes you want in that branch. Don't make any changes to `main` branch.
 
+3. Commit the changes and push the changes.
+
+4. Make the pull request.
+
