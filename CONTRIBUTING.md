@@ -74,4 +74,3 @@ git checkout build
 3. Commit the changes and push the changes.
 
 4. Make the pull request.
-
