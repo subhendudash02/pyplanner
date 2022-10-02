@@ -73,4 +73,32 @@ git checkout build
 
 3. Commit the changes and push the changes.
 
-4. Make the pull request.
+4. Make the pull request. Fill the template while making a PR.
+
+![PR](./screenshots/PR.png)
+
+Change the base branch to build branch of your forked repository.
+
+# Writing better git commands
+
+Before commiting the changes, make sure you follow the rules of writing a good git message.
+
+The git message has the following format: 
+
+```
+<type>: <description>
+```
+
+`<type>` are of different types: 
+
+ - `feat` – a new feature is introduced with the changes
+ - `fix` – a bug fix has occurred
+ - `chore` – changes that do not relate to a fix or feature and don't modify src or test files (for example updating dependencies)
+ - `refactor` – refactored code that neither fixes a bug nor adds a feature
+ - `docs` – updates to documentation such as a the README or other markdown files
+ - `style` – changes that do not affect the meaning of the code, likely related to code formatting such as white-space, missing semi-colons, and so on.
+ - `test` – including new or correcting previous tests
+ - `revert` – reverts a previous commit
+
+ **Source:** [link](https://www.freecodecamp.org/news/how-to-write-better-git-commit-messages/)
+
