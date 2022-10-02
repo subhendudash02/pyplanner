@@ -1,5 +1,7 @@
 # pyagenda
 
+![Stars](https://img.shields.io/github/stars/subhendudash02/pyagenda.svg?logo=github) ![forks](https://img.shields.io/github/forks/subhendudash02/pyagenda.svg?logo=github&color=green) ![lang](https://img.shields.io/github/languages/top/subhendudash02/pyagenda?color=blue&logo=python)
+
 This is the official pyagenda repository.
 
 This lightweight application allows you to quickly schedule your activities.
