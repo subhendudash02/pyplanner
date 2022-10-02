@@ -114,4 +114,10 @@ The git message has the following format:
  - `revert` – reverts a previous commit
 
  **Source:** [link](https://www.freecodecamp.org/news/how-to-write-better-git-commit-messages/)
- 
+
+# Coding Guidelines
+
+1. Name the meaningful variables.
+2. Use `snake_case` for naming variables and function names.
+3. Maintain **4 spaces** in VS Code and anywhere in the repository.
+4. Comment the code especially in hard-to-understand areas.
