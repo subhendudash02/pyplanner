@@ -1,12 +1,12 @@
 from pyagenda import task_register, make_time
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import  QTableWidgetItem
-from appUtil.gui_app import Ui_MainWindow
+from appUtil.gui_app import Ui_pyagenda
 import database.db_ops as ops
 import sys
 from datetime import datetime
 
-class App(Ui_MainWindow):
+class App(Ui_pyagenda):
     def __init__(self):
         super().__init__()
 
