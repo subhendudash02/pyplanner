@@ -117,7 +117,9 @@ If you find any bugs / new feature to be added, don't hesitate to create a new i
 
  - Make sure you read [contributing guidelines](https://github.com/subhendudash02/pyagenda/blob/main/CONTRIBUTING.md) first.
 
- - Follow our [code of conduct](). Violation of any rule will lead to disqualification from Hacktoberfest 2022.
+ - Follow our [code of conduct](https://github.com/subhendudash02/pyagenda/blob/main/CODE_OF_CONDUCT.md). Violation of any rule will lead to disqualification from Hacktoberfest 2022.
+
+ - Follow PR template and issue template accordingly before creating any issue/PR.
 
 <br>
 

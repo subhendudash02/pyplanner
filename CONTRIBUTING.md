@@ -61,6 +61,19 @@ pyuic5 gui.ui > gui_app.py
 
 Don't change the file name to anything else.
 
+# Issues
+
+1. Create a new issue before creating a PR otherwise your PR will be rejected.
+2. Go to issues tab and press "New Issue" button.
+
+![New Issue](./screenshots/new_issue.png)
+
+3. Create a new issue by filling up the template given in the markdown. Select any one category - Bug report, custom issue template and feature request.
+
+![Issue Template](./screenshots/issue_template.png)
+
+4. Further discussion can be done under that issue and accordingly we can assign you as the assignees.
+
 # Pull Requests
 
 1. After forking and cloning the repository, change the branch to `build`.
@@ -101,4 +114,4 @@ The git message has the following format:
  - `revert` – reverts a previous commit
 
  **Source:** [link](https://www.freecodecamp.org/news/how-to-write-better-git-commit-messages/)
-
+ 
