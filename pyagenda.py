@@ -6,6 +6,7 @@ import time as tt
 import cron_job as cr
 import task_list as tl
 from os_checker import check_os
+import click
 
 if check_os() != "Linux":
     print("This application is supported for Linux only.")
@@ -34,10 +35,6 @@ def task_register(task, time):
     # Register task in cron
     cr.make_job(final_txt, [time[3:5], time[0:2], d.day, d.month])
 
-
-args = len(sys.argv)
-
-
 """
 Creates db file on execution of this file
 """
@@ -51,43 +48,36 @@ except:
 List of commands
 """
 
-# python3 -m pyagenda set_task <task-name> <time-scheduled>
+@click.group()
+def main():
+    pass
 
-if args == 4:
-    task_register(sys.argv[2], sys.argv[3])
-    print("Task Scheduled!")
+@click.command('set_task')
+@click.argument('task', type=str)
+@click.argument('time', type=str)
+def set_task(task, time):
+    task_register(task, time)
+    click.echo("Task Scheduled!")
 
-elif args == 2:
+@click.command('reset')
+def reset():
+    ops.remove_db()
+    cr.clear_jobs()
+    click.echo("All the tasks are removed. Hence you will not receive notifications until you schedule a new task.")
 
-    # python3 -m pyagenda reset 
+@click.command('show_tasks')
+def show_tasks():
+    tl.print_tasks()
 
-    if sys.argv[1] == "reset":
-        ops.remove_db()
-        cr.clear_jobs()
-        print("All the tasks are removed. Hence you will not receive notifications until you schedule a new task.")
-    
-    # python3 -m pyagenda show_tasks
+@click.command('start_app')
+def start_app():
+    click.echo("Starting the app...")
+    os.system("python3 -m app")
 
-    elif sys.argv[1] == "show_tasks":
-        tl.print_tasks()
-    
-    # python3 -m pyagenda start_app
+main.add_command(set_task)
+main.add_command(reset)
+main.add_command(show_tasks)
+main.add_command(start_app)
 
-    elif sys.argv[1] == "start_app":
-        print("Starting the app...")
-        os.system("python3 -m app")
-    
-    # python3 -m pyagenda help
-
-    elif sys.argv[1] == "help":
-        print("""
-        Usage:
-        python3 -m pyagenda [option] [task] [time]
-
-        Options:
-        reset - Removes all the tasks from the database.
-        show_tasks - Shows all the tasks in the database.
-        start_app - Starts the application.
-        """)
-    else:
-        print("Unknown Command. Please use 'python3 -m pyagenda help' for more info.")
+if __name__ == "__main__":
+    main()
