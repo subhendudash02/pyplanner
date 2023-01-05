@@ -113,12 +113,6 @@ python3 -m pyagenda set_task <task-name> <time-scheduled>
 
 ## Contributing
 
-**Note:** We are accepting contributions for [Hacktoberfest 2022](https://hacktoberfest.com). Make sure you visit the website and read the guidelines and sign up before contributing.
-
-![hacktoberfest](./screenshots/hacktoberfest.png)
-
-If you find any bugs / new feature to be added, don't hesitate to create a new issue. After approval, you may create a new pull request.
-
  - Make sure you read [contributing guidelines](https://github.com/subhendudash02/pyagenda/blob/main/CONTRIBUTING.md) first.
 
  - Follow our [code of conduct](https://github.com/subhendudash02/pyagenda/blob/main/CODE_OF_CONDUCT.md). Violation of any rule will lead to disqualification from Hacktoberfest 2022.
