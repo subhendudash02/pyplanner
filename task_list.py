@@ -1,7 +1,11 @@
 from rich.console import Console
 from rich.table import Table
-import database.db_ops as ops
+from database.db_ops import TableSQL
 import os
+
+attr = ["name", "time", "unix", "cron", "rem_time"]
+datatypes = ["text", "text", "bigint", "text", "text"]
+ops = TableSQL('set_task', attr, datatypes)
 
 def print_tasks():
     os.system("clear")

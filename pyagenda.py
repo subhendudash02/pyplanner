@@ -1,5 +1,5 @@
 import os
-import database.db_ops as ops
+from database.db_ops import TableSQL
 from datetime import datetime
 import time as tt
 import cron_job as cr
@@ -7,9 +7,22 @@ import task_list as tl
 from os_checker import check_os
 import click
 
+attr = ["name", "time", "unix", "cron", "rem_time"]
+datatypes = ["text", "text", "bigint", "text", "text"]
+ops = TableSQL('set_task', attr, datatypes)
+
 if check_os() != "Linux":
     print("This application is supported for Linux only.")
     exit()
+
+"""
+Creates db file on execution of this file
+"""
+
+try:
+    ops.create_table()
+except:
+    pass
 
 def make_time(time):
     d = datetime.now()
@@ -34,19 +47,6 @@ def task_register(task, time):
     
     # Register task in cron
     cr.make_job(final_txt, [str(int(time[3:5]) - 5), time[0:2], d.day, d.month])
-
-"""
-Creates db file on execution of this file
-"""
-
-try:
-    ops.create_table(
-        "set_task", 
-        ["name", "time", "unix", "cron", "rem_time"], 
-        ["text", "text", "bigint", "text", "text"]
-    )
-except:
-    pass
 
 """
 List of commands
