@@ -1,6 +1,5 @@
 import os
 import database.db_ops as ops
-import sys
 from datetime import datetime
 import time as tt
 import cron_job as cr
@@ -27,20 +26,25 @@ def task_register(task, time):
         exit()
     unix = tt.mktime(new.timetuple())
     cron = "{} {} {} {} *".format(time[3:5], time[0:2], d.day, d.month)
-    ops.insertInto_table([task, time, unix, cron])
+    rem_time = "{} {} {} {} *".format(str(int(time[3:5]) - 5), time[0:2], d.day, d.month)
+    ops.insertInto_table([task, time, unix, cron, rem_time])
 
     # Notification in Linux
     final_txt = "XDG_RUNTIME_DIR=/run/user/$(id -u) notify-send Reminder '{}'".format(task)  
     
     # Register task in cron
-    cr.make_job(final_txt, [time[3:5], time[0:2], d.day, d.month])
+    cr.make_job(final_txt, [str(int(time[3:5]) - 5), time[0:2], d.day, d.month])
 
 """
 Creates db file on execution of this file
 """
 
 try:
-    ops.create_table("set_task", ["name", "time", "unix", "cron"], ["text", "text", "bigint", "text"])
+    ops.create_table(
+        "set_task", 
+        ["name", "time", "unix", "cron", "rem_time"], 
+        ["text", "text", "bigint", "text", "text"]
+    )
 except:
     pass
 

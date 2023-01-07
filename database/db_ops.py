@@ -12,16 +12,17 @@ def remove_db(): # will be used to reset the application
         sp.run(["rm", "database/util.db"])
 
 def create_table(name, attr, datatypes):
-    cursor.execute("CREATE TABLE {}({} {}, {} {}, {} {}, {} {});"
+    cursor.execute("CREATE TABLE {}({} {}, {} {}, {} {}, {} {}, {} {});"
                     .format(name, attr[0], datatypes[0], 
                                 attr[1], datatypes[1], 
                                 attr[2], datatypes[2],
-                                attr[3], datatypes[3])
+                                attr[3], datatypes[3],
+                                attr[4], datatypes[4])
                     )
     connect_db.commit()
 
 def insertInto_table(values):
-    cursor.execute("INSERT INTO set_task VALUES('{}', '{}', '{}', '{}');".format(values[0], values[1], values[2], values[3]))
+    cursor.execute("INSERT INTO set_task VALUES('{}', '{}', '{}', '{}', '{}');".format(values[0], values[1], values[2], values[3], values[4]))
     connect_db.commit()
 
 def topmost_row():
