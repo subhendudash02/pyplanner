@@ -1,12 +1,13 @@
+import os
+import subprocess as sp
 from datetime import datetime
 import time as tt
 import pyagenda.cron_job as cr
 from pyagenda.db_ops import TableSQL
 from pyagenda.os_checker import check_os
+from pyagenda._global import *
 
-attr = ["name", "time", "unix", "cron", "rem_time"]
-datatypes = ["text", "text", "bigint", "text", "text"]
-ops = TableSQL('set_task', attr, datatypes)
+ops = TableSQL('set_task', attributes, datatypes)
 
 if check_os() != "Linux":
     print("This application is supported for Linux only.")
@@ -17,6 +18,8 @@ Creates db file on execution of this file
 """
 
 try:
+    if not os.path.exists(db_path):
+        os.mkdir(db_path)
     ops.create_table()
 except:
     pass

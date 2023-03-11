@@ -2,10 +2,9 @@ from rich.console import Console
 from rich.table import Table
 from pyagenda.db_ops import TableSQL
 import os
+from pyagenda._global import *
 
-attr = ["name", "time", "unix", "cron", "rem_time"]
-datatypes = ["text", "text", "bigint", "text", "text"]
-ops = TableSQL('set_task', attr, datatypes)
+ops = TableSQL('set_task', attributes, datatypes)
 
 def print_tasks():
     os.system("clear")

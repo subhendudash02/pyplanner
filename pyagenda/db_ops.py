@@ -1,9 +1,10 @@
 import subprocess as sp
 import sqlite3 as sql
+from pyagenda._global import *
 
 class TableSQL:
     def __init__(self, table_name, attr, datatypes):
-        self.db_path = "pyagenda/database/util.db"
+        self.db_path = "/home/{}/util.db".format(username)
         self.connect_db = sql.connect(self.db_path, check_same_thread=False)
         self.cursor = self.connect_db.cursor()
 
