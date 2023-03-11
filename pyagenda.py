@@ -73,15 +73,9 @@ def reset():
 def show_tasks():
     tl.print_tasks()
 
-@click.command('start_app')
-def start_app():
-    click.echo("Starting the app...")
-    os.system("python3 -m app")
-
 main.add_command(set_task)
 main.add_command(reset)
 main.add_command(show_tasks)
-main.add_command(start_app)
 
 if __name__ == "__main__":
     main()
