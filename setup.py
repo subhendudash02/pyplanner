@@ -4,14 +4,14 @@ with open("README.md", "r") as f:
     description = f.read()
 
 setuptools.setup(
-    name="pyagenda",
+    name="pyplanner",
     version="0.0.1",
     author="Subhendu Dash",
     author_email="sdash29102@gmail.com",
-    description="pyagenda keeps track of all your activities and notifies you when they are due",
+    description="pyplanner keeps track of all your activities and notifies you when they are due",
     long_description=description,
     long_description_content_type="text/markdown",
-    url="https://github.com/subhendudash02/pyagenda",
+    url="https://github.com/subhendudash02/pyplanner",
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
