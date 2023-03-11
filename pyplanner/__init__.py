@@ -2,10 +2,10 @@ import os
 import subprocess as sp
 from datetime import datetime
 import time as tt
-import pyagenda.cron_job as cr
-from pyagenda.db_ops import TableSQL
-from pyagenda.os_checker import check_os
-from pyagenda._global import *
+import pyplanner.cron_job as cr
+from pyplanner.db_ops import TableSQL
+from pyplanner.os_checker import check_os
+from pyplanner._global import *
 
 ops = TableSQL('set_task', attributes, datatypes)
 

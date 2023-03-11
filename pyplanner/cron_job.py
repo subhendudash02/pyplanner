@@ -1,7 +1,7 @@
 from crontab import CronTab
 import subprocess as sp
-from pyagenda.os_checker import check_os
-from pyagenda._global import *
+from pyplanner.os_checker import check_os
+from pyplanner._global import *
 
 os = check_os()
 cron = CronTab(user=username)

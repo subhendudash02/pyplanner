@@ -1,6 +1,6 @@
 import subprocess as sp
 import sqlite3 as sql
-from pyagenda._global import *
+from pyplanner._global import *
 
 class TableSQL:
     def __init__(self, table_name, attr, datatypes):

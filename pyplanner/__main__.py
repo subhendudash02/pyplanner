@@ -1,7 +1,7 @@
-import pyagenda as pya
+import pyplanner as pya
 import click
-import pyagenda.task_list as tl
-import pyagenda.cron_job as cr
+import pyplanner.task_list as tl
+import pyplanner.cron_job as cr
 
 @click.group()
 def main():

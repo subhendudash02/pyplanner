@@ -1,8 +1,8 @@
 from rich.console import Console
 from rich.table import Table
-from pyagenda.db_ops import TableSQL
+from pyplanner.db_ops import TableSQL
 import os
-from pyagenda._global import *
+from pyplanner._global import *
 
 ops = TableSQL('set_task', attributes, datatypes)
 
