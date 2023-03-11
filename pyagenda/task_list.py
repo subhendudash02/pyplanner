@@ -1,6 +1,6 @@
 from rich.console import Console
 from rich.table import Table
-from database.db_ops import TableSQL
+from pyagenda.db_ops import TableSQL
 import os
 
 attr = ["name", "time", "unix", "cron", "rem_time"]

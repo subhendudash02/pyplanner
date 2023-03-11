@@ -3,7 +3,7 @@ import sqlite3 as sql
 
 class TableSQL:
     def __init__(self, table_name, attr, datatypes):
-        self.db_path = "database/util.db"
+        self.db_path = "pyagenda/database/util.db"
         self.connect_db = sql.connect(self.db_path, check_same_thread=False)
         self.cursor = self.connect_db.cursor()
 

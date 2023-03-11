@@ -1,11 +1,8 @@
-import os
-from database.db_ops import TableSQL
 from datetime import datetime
 import time as tt
-import cron_job as cr
-import task_list as tl
-from os_checker import check_os
-import click
+import pyagenda.cron_job as cr
+from pyagenda.db_ops import TableSQL
+from pyagenda.os_checker import check_os
 
 attr = ["name", "time", "unix", "cron", "rem_time"]
 datatypes = ["text", "text", "bigint", "text", "text"]
@@ -47,35 +44,3 @@ def task_register(task, time):
     
     # Register task in cron
     cr.make_job(final_txt, [str(int(time[3:5]) - 5), time[0:2], d.day, d.month])
-
-"""
-List of commands
-"""
-
-@click.group()
-def main():
-    pass
-
-@click.command('set_task')
-@click.argument('task', type=str)
-@click.argument('time', type=str)
-def set_task(task, time):
-    task_register(task, time)
-    click.echo("Task Scheduled!")
-
-@click.command('reset')
-def reset():
-    ops.remove_db()
-    cr.clear_jobs()
-    click.echo("All the tasks are removed. Hence you will not receive notifications until you schedule a new task.")
-
-@click.command('show_tasks')
-def show_tasks():
-    tl.print_tasks()
-
-main.add_command(set_task)
-main.add_command(reset)
-main.add_command(show_tasks)
-
-if __name__ == "__main__":
-    main()

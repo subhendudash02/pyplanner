@@ -1,6 +1,6 @@
 from crontab import CronTab
 import subprocess as sp
-from os_checker import check_os
+from pyagenda.os_checker import check_os
 
 os = check_os()
 username = sp.check_output(["whoami"], shell=True).decode("utf-8").strip()
